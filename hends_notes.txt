@@ -42,5 +42,13 @@ I'm thinking of the normal one of 2 classes and the the other one with multi-cla
 The accuracy intially:
     - for the breast-cancer -> 92%  | lr=0.01, epochs=1000
     - for the glass -> 39.5%  | lr=0.01, epochs=1000
-    - for pump -> |  lr=0.01, epochs=1000
+    - for pump -> ? |  lr=0.01, epochs=1000
 
+Stop. with the pump, the way I wrote the MulticlassLogisticRegression with pure python took ages to train the pumps data. So I had to use numpy 
+I feel I'm re inventing the wheel but it feels good to understand things in practice took
+
+Moving on:
+    - for the breast-cancer -> 92.98%  | lr=0.01, epochs=1000
+    - for the glass -> 58.14%  | lr=0.005, epochs=3000
+    - for pump -> 0.9878 |  lr=0.01, epochs=1000
+    - for Mashroom -> 97.17%  | lr=0.01, epochs=1000
