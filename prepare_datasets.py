@@ -2,8 +2,10 @@ from helpers.data_loader import load_glass_data, load_pump_data, load_energy_dat
 from helpers.preprocessing import encode_labels, one_hot_encode_features, train_test_split, standardize
 import pprint
 
-pp = pprint.PrettyPrinter(indent=2)
 
+from models.logistic_regression import LogisticRegression, MulticlassLogisticRegression
+
+pp = pprint.PrettyPrinter(indent=2)
 
 # GLASS (Multiclass classification)
 glass = load_glass_data()
@@ -21,6 +23,20 @@ print("\nGlass:", len(Xg_train), "train /", len(Xg_test), "test")
 pp.pprint(Xg_train[0])
 print("Label:", yg_train[0])
 
+
+# model = MulticlassLogisticRegression(lr=0.01, epochs=1000)
+
+model = MulticlassLogisticRegression(lr=0.005, epochs=3000)
+# model = MulticlassLogisticRegression(lr=0.01, epochs=5000)
+# model = MulticlassLogisticRegression(lr=0.05, epochs=1500)
+
+
+
+model.fit(Xg_train, yg_train)
+preds = model.predict(Xg_test)
+
+accuracy = sum(1 for p, y in zip(preds, yg_test) if p == y) / len(yg_test)
+print(f"🎯 Glass Accuracy: {accuracy:.4f}")
 
 
 # PUMP SENSOR (Multiclass classification)
@@ -40,6 +56,15 @@ print("\nPump Sensor:", len(Xp_train), "train /", len(Xp_test), "test")
 
 
 
+model = MulticlassLogisticRegression(lr=0.01, epochs=1000)
+model.fit(Xp_train, yp_train)
+preds = model.predict(Xp_test)
+
+acc = sum(1 for p, y in zip(preds, yp_test) if p == y) / len(yp_test)
+print(f"\n🎯 Pump Sensor Accuracy: {acc:.4f}")
+
+
+"""
 # ENERGY (Regression)
 energy = load_energy_data()
 # print(f"\nLoaded Energy dataset with {len(energy)} samples and {len(energy[0]) - 2} features + 2 targets.")
@@ -54,7 +79,7 @@ Xe_train = standardize(Xe_train)
 Xe_test = standardize(Xe_test)
 
 print("\nEnergy:", len(Xe_train), "train /", len(Xe_test), "test")
-
+"""
 
 
 # BREAST CANCER (Binary classification)
@@ -72,6 +97,23 @@ print("\nBreast Cancer:", len(Xbc_train), "train /", len(Xbc_test), "test")
 
 
 
+# Use already-preprocessed breast cancer data
+model = LogisticRegression(lr=0.01, epochs=1000)
+model.fit(Xbc_train, ybc_train)
+preds = model.predict(Xbc_test)
+
+# Accuracy
+acc = sum(1 for p, y in zip(preds, ybc_test) if p == y) / len(ybc_test)
+print(f"\n🎯 Breast Cancer Accuracy: {acc:.4f}")
+
+
+
+
+
+
+
+
+"""
 
 # MUSHROOM (Binary classification, categorical)
 mush = load_mushroom_data()
@@ -109,3 +151,4 @@ Xr_train = standardize(Xr_train)
 Xr_test = standardize(Xr_test)
 
 print("\nRobot:", len(Xr_train), "train /", len(Xr_test), "test")
+"""
