@@ -1,0 +1,35 @@
+My thought process as I go with this project: (my own logs XD)
+
+- I want to download the datsets in code so anyone can just run the project direclty with ease.
+I faced issues witht he robot dtatset link not working and retunrning 404 so I downloaded it manully 
+
+- I also found the inside of the datasets is different so I had to load them in different ways.
+the breast cancer dataset was the trickest and I had to study the structure and loop over it
+
+- Made this project a repo 
+
+- Preprocessing chapter:
+I want to generilize the preprocssing as much as I can. 
+    so far I can think of:
+    - train_test_split
+    - standardize
+    - encode_labels
+
+
+Glass -> Already numeric labels (1–7) but it's ok to encode them I think (not going to)
+Energy -> We need to choose either Y1 or Y2 as a single regression target since each model expects one target variable 
+Breast Cancer -> Label already converted to 0/1, features are numeric
+> For those: I can (use labels as-is) so it's split -> standarize
+
+
+Pump -> machine_status is a string (NORMAL, etc.) -> Needs encoding	-> use encode_labels()
+Robot -> Label is a string (normal, collision, etc.) -> Needs encoding -> use encode_labels()
+> For those: I can encode labels -> split -> standarize
+
+
+
+Mushroom -> Needs full feature encoding	All features are strings! Definit need for encoding –> one-hot or label encoding
+I'm against doing the encoding like ['a', 'b', 'c'] → [0, 1, 2] coz I don't like the idea that 2>0 so I'll go with one-hot and hope that I don't regret anything
+
+
+
