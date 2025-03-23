@@ -1,0 +1,79 @@
+--- New Training Session ---
+Epoch 100/1000 - Accuracy: 0.9819 - Loss: 0.5086
+Epoch 200/1000 - Accuracy: 0.9834 - Loss: 0.3346
+Epoch 300/1000 - Accuracy: 0.9838 - Loss: 0.2546
+Epoch 400/1000 - Accuracy: 0.9843 - Loss: 0.2084
+Epoch 500/1000 - Accuracy: 0.9846 - Loss: 0.1774
+Epoch 600/1000 - Accuracy: 0.9854 - Loss: 0.1547
+Epoch 700/1000 - Accuracy: 0.9862 - Loss: 0.1371
+Epoch 800/1000 - Accuracy: 0.9863 - Loss: 0.1230
+Epoch 900/1000 - Accuracy: 0.9869 - Loss: 0.1115
+Epoch 1000/1000 - Accuracy: 0.9872 - Loss: 0.1021
+
+--- New Training Session ---
+Epoch 100/3000 - Accuracy: 0.5731 - Loss: 1.5991
+Epoch 200/3000 - Accuracy: 0.5906 - Loss: 1.4600
+Epoch 300/3000 - Accuracy: 0.5906 - Loss: 1.3598
+Epoch 400/3000 - Accuracy: 0.5965 - Loss: 1.2850
+Epoch 500/3000 - Accuracy: 0.6082 - Loss: 1.2273
+Epoch 600/3000 - Accuracy: 0.6082 - Loss: 1.1814
+Epoch 700/3000 - Accuracy: 0.6140 - Loss: 1.1441
+Epoch 800/3000 - Accuracy: 0.6140 - Loss: 1.1132
+Epoch 900/3000 - Accuracy: 0.6199 - Loss: 1.0871
+Epoch 1000/3000 - Accuracy: 0.6140 - Loss: 1.0649
+Epoch 1100/3000 - Accuracy: 0.6257 - Loss: 1.0456
+Epoch 1200/3000 - Accuracy: 0.6257 - Loss: 1.0288
+Epoch 1300/3000 - Accuracy: 0.6316 - Loss: 1.0139
+Epoch 1400/3000 - Accuracy: 0.6316 - Loss: 1.0007
+Epoch 1500/3000 - Accuracy: 0.6316 - Loss: 0.9888
+Epoch 1600/3000 - Accuracy: 0.6257 - Loss: 0.9781
+Epoch 1700/3000 - Accuracy: 0.6199 - Loss: 0.9683
+Epoch 1800/3000 - Accuracy: 0.6257 - Loss: 0.9594
+Epoch 1900/3000 - Accuracy: 0.6257 - Loss: 0.9512
+Epoch 2000/3000 - Accuracy: 0.6316 - Loss: 0.9436
+Epoch 2100/3000 - Accuracy: 0.6374 - Loss: 0.9366
+Epoch 2200/3000 - Accuracy: 0.6433 - Loss: 0.9301
+Epoch 2300/3000 - Accuracy: 0.6433 - Loss: 0.9240
+Epoch 2400/3000 - Accuracy: 0.6491 - Loss: 0.9183
+Epoch 2500/3000 - Accuracy: 0.6491 - Loss: 0.9129
+Epoch 2600/3000 - Accuracy: 0.6491 - Loss: 0.9079
+Epoch 2700/3000 - Accuracy: 0.6550 - Loss: 0.9031
+Epoch 2800/3000 - Accuracy: 0.6608 - Loss: 0.8986
+Epoch 2900/3000 - Accuracy: 0.6608 - Loss: 0.8943
+Epoch 3000/3000 - Accuracy: 0.6608 - Loss: 0.8903
+
+--- New Training Session ---
+Epoch 100/1000 - Accuracy: 0.8926 - Loss: 0.3763
+Epoch 200/1000 - Accuracy: 0.9049 - Loss: 0.2814
+Epoch 300/1000 - Accuracy: 0.9194 - Loss: 0.2345
+Epoch 400/1000 - Accuracy: 0.9372 - Loss: 0.2049
+Epoch 500/1000 - Accuracy: 0.9498 - Loss: 0.1839
+Epoch 600/1000 - Accuracy: 0.9597 - Loss: 0.1681
+Epoch 700/1000 - Accuracy: 0.9665 - Loss: 0.1555
+Epoch 800/1000 - Accuracy: 0.9720 - Loss: 0.1454
+Epoch 900/1000 - Accuracy: 0.9749 - Loss: 0.1369
+Epoch 1000/1000 - Accuracy: 0.9757 - Loss: 0.1297
+
+--- New Training Session ---
+Epoch 100/1000 - Accuracy: 0.3946 - Loss: 2.3684
+Epoch 200/1000 - Accuracy: 0.3946 - Loss: 2.1793
+Epoch 300/1000 - Accuracy: 0.3946 - Loss: 2.0534
+Epoch 400/1000 - Accuracy: 0.3973 - Loss: 1.9633
+Epoch 500/1000 - Accuracy: 0.4081 - Loss: 1.8960
+Epoch 600/1000 - Accuracy: 0.4189 - Loss: 1.8437
+Epoch 700/1000 - Accuracy: 0.4216 - Loss: 1.8015
+Epoch 800/1000 - Accuracy: 0.4243 - Loss: 1.7664
+Epoch 900/1000 - Accuracy: 0.4297 - Loss: 1.7366
+Epoch 1000/1000 - Accuracy: 0.4378 - Loss: 1.7107
+
+--- New Training Session ---
+Epoch 100/1000 - Accuracy: 0.9670 - Loss: 0.1877
+Epoch 200/1000 - Accuracy: 0.9736 - Loss: 0.1400
+Epoch 300/1000 - Accuracy: 0.9736 - Loss: 0.1194
+Epoch 400/1000 - Accuracy: 0.9736 - Loss: 0.1074
+Epoch 500/1000 - Accuracy: 0.9758 - Loss: 0.0994
+Epoch 600/1000 - Accuracy: 0.9802 - Loss: 0.0936
+Epoch 700/1000 - Accuracy: 0.9824 - Loss: 0.0891
+Epoch 800/1000 - Accuracy: 0.9824 - Loss: 0.0855
+Epoch 900/1000 - Accuracy: 0.9824 - Loss: 0.0825
+Epoch 1000/1000 - Accuracy: 0.9824 - Loss: 0.0800

@@ -1,0 +1,13 @@
+\n--- New Training Session ---\n-----------------------------------------------------------------
+\n--- New Training Session ---\n-----------------------------------------------------------------
+Epoch 100/1000 - Accuracy: 0.9912 - Loss: 0.0418
+Epoch 200/1000 - Accuracy: 0.9912 - Loss: 0.0375
+Epoch 300/1000 - Accuracy: 0.9912 - Loss: 0.0347
+Epoch 400/1000 - Accuracy: 0.9912 - Loss: 0.0326
+Epoch 500/1000 - Accuracy: 0.9934 - Loss: 0.0310
+Epoch 600/1000 - Accuracy: 0.9934 - Loss: 0.0297
+Epoch 700/1000 - Accuracy: 0.9934 - Loss: 0.0286
+Epoch 800/1000 - Accuracy: 0.9934 - Loss: 0.0276
+Epoch 900/1000 - Accuracy: 0.9934 - Loss: 0.0268
+Epoch 1000/1000 - Accuracy: 0.9934 - Loss: 0.0261
+-----------------------------------------------------------------
