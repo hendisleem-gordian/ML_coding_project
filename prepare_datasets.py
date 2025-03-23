@@ -1,11 +1,16 @@
 from helpers.data_loader import load_glass_data, load_pump_data, load_energy_data, load_breast_cancer_data, load_mushroom_data, load_robot_data
 from helpers.preprocessing import encode_labels, one_hot_encode_features, train_test_split, standardize
 import pprint
-
+import matplotlib.pyplot as plt
 
 from models.logistic_regression import LogisticRegression, MulticlassLogisticRegression
 
 pp = pprint.PrettyPrinter(indent=2)
+
+
+# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+
 
 # GLASS (Multiclass classification)
 glass = load_glass_data()
@@ -38,6 +43,18 @@ preds = model.predict(Xg_test)
 accuracy = sum(1 for p, y in zip(preds, yg_test) if p == y) / len(yg_test)
 print(f"🎯 Glass Accuracy: {accuracy:.4f}")
 
+# Plot accuracy over epochs
+plt.plot(model.training_accuracy, label="Accuracy")
+plt.plot(model.training_loss, label="Loss")
+plt.xlabel("Epoch")
+plt.title("Training Progress")
+plt.legend()
+plt.grid(True)
+plt.show()
+
+# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+
 
 # PUMP SENSOR (Multiclass classification)
 header, pump = load_pump_data()
@@ -63,6 +80,19 @@ preds = model.predict(Xp_test)
 acc = sum(1 for p, y in zip(preds, yp_test) if p == y) / len(yp_test)
 print(f"\n🎯 Pump Sensor Accuracy: {acc:.4f}")
 
+# Plot accuracy over epochs
+plt.plot(model.training_accuracy, label="Accuracy")
+plt.plot(model.training_loss, label="Loss")
+plt.xlabel("Epoch")
+plt.title("Training Progress")
+plt.legend()
+plt.grid(True)
+plt.show()
+
+
+# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+
 
 """
 # ENERGY (Regression)
@@ -80,6 +110,11 @@ Xe_test = standardize(Xe_test)
 
 print("\nEnergy:", len(Xe_train), "train /", len(Xe_test), "test")
 """
+
+
+# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+
 
 
 # BREAST CANCER (Binary classification)
@@ -111,6 +146,11 @@ print(f"\n🎯 Breast Cancer Accuracy: {acc:.4f}")
 
 
 
+# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+
+
+
 
 
 """
@@ -134,6 +174,11 @@ Xm_train, ym_train = zip(*mush_train)
 Xm_test, ym_test = zip(*mush_test)
 
 print("\nMushroom:", len(Xm_train), "train /", len(Xm_test), "test")
+
+
+
+# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 
 
 
