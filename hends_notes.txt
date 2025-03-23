@@ -32,4 +32,15 @@ Mushroom -> Needs full feature encoding	All features are strings! Definit need f
 I'm against doing the encoding like ['a', 'b', 'c'] → [0, 1, 2] coz I don't like the idea that 2>0 so I'll go with one-hot and hope that I don't regret anything
 
 
+------------------------
+
+creating the models chapter:
+
+>>>> logistic_regression
+I'm thinking of the normal one of 2 classes and the the other one with multi-classes. 
+
+The accuracy intially:
+    - for the breast-cancer -> 92%  | lr=0.01, epochs=1000
+    - for the glass -> 39.5%  | lr=0.01, epochs=1000
+    - for pump -> |  lr=0.01, epochs=1000
 
