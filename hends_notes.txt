@@ -82,3 +82,57 @@ As we can see it made great results with pump and mashroom but not so great with
 
 a defet for the robot but better than nothing
 
+(venv) PS C:\Users\100990848\G\uni\ML_code> python -m experiments.run_knn
+
+Glass: 171 train / 43 test
+>>>>>>>>  Glass Accuracy for nb: 0.6977
+Confusion Matrix:
+     0  1  2  3  4  5
+  0: 14   2   1   0   0   0
+  1:  1   9   0   0   0   0
+  2:  3   0   0   0   0   0
+  3:  0   0   0   2   0   1
+  4:  0   1   0   0   1   0
+  5:  2   2   0   0   0   4
+
+Pump: 176256 train / 44064 test
+>>>>>>>>  Pump Accuracy for nb: 0.9999
+Confusion Matrix:
+     0  1  2
+  0: 41238   0   0
+  1:  1   0   0
+  2:  5   0  2820
+
+Breast Cancer: 455 train / 114 test
+>>>>>>>>  Breast Cancer Accuracy for nb: 0.9035
+Confusion Matrix:
+     0  1
+  0: 63   0
+  1: 11  40
+
+Mushroom: 6499 train / 1625 test
+>>>>>>>>  Mushroom Accuracy for nb: 1.0000
+Confusion Matrix:
+     0  1
+  0: 795   0
+  1:  0  830
+
+Robot: 370 train / 93 test
+>>>>>>>>  Robot Accuracy for nb: 0.3548
+Confusion Matrix:
+     0  1  2  3  4  6  7  8  9  10  11  12  13  14  15
+  0: 22   0   0   0   0   0   0   2   0   0   0   0   0   0   2
+  1:  0   2   0   0   0   0   0   0   0   0   0   3   4   0   3
+  2:  0   0   8   0   0   0   0   0   0   0   0   0   0   1   0
+  3:  3   0   1   0   0   0   0   0   0   0   0   0   0   0   0
+  4:  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+  6:  1   0   0   0   0   0   0   0   0   1   0   0   1   0   0
+  7:  0   0   0   0   0   0   0   0   1   2   0   1   0   0   0
+  8:  6   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+  9:  1   0   0   0   0   0   0   0   0   0   0   0   2   0   0
+ 10:  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+ 11:  0   0   0   0   0   0   0   0   0   0   0   0   1   0   0
+ 12:  1   0   0   0   1   1   0   0   0   2   0   1   0   0   0
+ 13:  1   8   0   0   0   0   0   0   1   0   0   0   0   0   0
+ 14:  0   0   4   0   0   0   0   0   0   0   0   0   0   0   0
+ 15:  0   4   1   0   0   0   0   0   0   0   0   0   0   0   0
