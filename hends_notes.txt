@@ -60,3 +60,17 @@ built lionear-regression for the energy since it's not classification problem
     - R²: 0.8799
 
 NEXT!!!!
+
+Naive Bayes the smart voting system LOL
+
+- removed standarization so we can deal witht he categories as not numbers
+
+I had to use the labels for the ploting and it mostly didn't do great overall
+    - Glass Accuracy: 0.5349
+    - Pump Accuracy: 0.9938
+    - Breast Cancer Accuracy: 0.7018
+    - Mushroom Accuracy: 0.9822
+    - Robot Accuracy: 0.2366
+
+As we can see it made great results with pump and mashroom but not so great witht he float heavy featuresso let's try doing the Gaussian Naive Bayes for those
+
