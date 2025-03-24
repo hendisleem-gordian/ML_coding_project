@@ -1,11 +1,9 @@
 from helpers.data_loader import load_glass_data, load_pump_data, load_energy_data, load_breast_cancer_data, load_mushroom_data, load_robot_data
 
-# Load and inspect Glass data
 glass = load_glass_data()
 print(f"Loaded Glass dataset with {len(glass)} samples and {len(glass[0]) - 1} features + 1 label.")
 print("Sample row:", glass[0])
 
-# Load and inspect Pump data
 header, pump = load_pump_data()
 print(f"\nLoaded Pump dataset with {len(pump)} samples and {len(pump[0]) - 2} features + 1 label.")
 print("Header:", header)

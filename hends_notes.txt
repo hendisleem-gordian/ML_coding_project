@@ -52,3 +52,11 @@ Moving on:
     - for the glass -> 58.14%  | lr=0.005, epochs=3000
     - for pump -> 0.9878 |  lr=0.01, epochs=1000
     - for Mashroom -> 97.17%  | lr=0.01, epochs=1000
+    - for robot -> 43.01%  | lr=0.01, epochs=1000
+
+built lionear-regression for the energy since it's not classification problem
+    - MSE: 11.5071
+    - MAE: 2.6759
+    - R²: 0.8799
+
+NEXT!!!!
