@@ -1,9 +1,11 @@
+from helpers import regression_metrics
 from helpers.data_loader import load_glass_data, load_pump_data, load_energy_data, load_breast_cancer_data, load_mushroom_data, load_robot_data
 from helpers.preprocessing import encode_labels, one_hot_encode_features, train_test_split, standardize
 import pprint
 import matplotlib.pyplot as plt
 
 from models.logistic_regression import LogisticRegression, MulticlassLogisticRegression
+from models.linear_regression import LinearRegression
 
 pp = pprint.PrettyPrinter(indent=2)
 
@@ -12,105 +14,138 @@ pp = pprint.PrettyPrinter(indent=2)
 # -----------------------------------------------------------------------------
 
 # GLASS (Multiclass classification)
-# glass = load_glass_data()
-# # print(f"Loaded Glass dataset with {len(glass)} samples and {len(glass[0]) - 1} features + 1 label.")
-# # print("Sample row:", glass[0])
-# X_glass = [row[:-1] for row in glass]
-# # y_glass = [int(row[-1]) for row in glass]
+glass = load_glass_data()
+# print(f"Loaded Glass dataset with {len(glass)} samples and {len(glass[0]) - 1} features + 1 label.")
+# print("Sample row:", glass[0])
+X_glass = [row[:-1] for row in glass]
+# y_glass = [int(row[-1]) for row in glass]
 
-# y_glass, pump_label_map = encode_labels([row[-1] for row in glass])
+y_glass, pump_label_map = encode_labels([row[-1] for row in glass])
 
-# glass_train, glass_test = train_test_split(list(zip(X_glass, y_glass)), seed=42)
-# Xg_train, yg_train = zip(*glass_train)
-# Xg_test, yg_test = zip(*glass_test)
-# Xg_train = standardize(Xg_train)
-# Xg_test = standardize(Xg_test)
-# print("\nGlass:", len(Xg_train), "train /", len(Xg_test), "test")
-# pp.pprint(Xg_train[0])
-# print("Label:", yg_train[0])
-
-
-# # model = MulticlassLogisticRegression(lr=0.01, epochs=1000)
-
-# model = MulticlassLogisticRegression(lr=0.005, epochs=3000)
-# # model = MulticlassLogisticRegression(lr=0.01, epochs=5000)
-# # model = MulticlassLogisticRegression(lr=0.05, epochs=1500)
+glass_train, glass_test = train_test_split(list(zip(X_glass, y_glass)), seed=42)
+Xg_train, yg_train = zip(*glass_train)
+Xg_test, yg_test = zip(*glass_test)
+Xg_train = standardize(Xg_train)
+Xg_test = standardize(Xg_test)
+print("\nGlass:", len(Xg_train), "train /", len(Xg_test), "test")
+pp.pprint(Xg_train[0])
+print("Label:", yg_train[0])
 
 
+# model = MulticlassLogisticRegression(lr=0.01, epochs=1000)
 
-# model.fit(Xg_train, yg_train)
-# preds = model.predict(Xg_test)
-
-# accuracy = sum(1 for p, y in zip(preds, yg_test) if p == y) / len(yg_test)
-# print(f"🎯 Glass Accuracy: {accuracy:.4f}")
-
-# # Plot accuracy over epochs
-# plt.plot(model.training_accuracy, label="Accuracy")
-# plt.plot(model.training_loss, label="Loss")
-# plt.xlabel("Epoch")
-# plt.title("Training Progress")
-# plt.legend()
-# plt.grid(True)
-# plt.show()
-
-# -----------------------------------------------------------------------------
-# -----------------------------------------------------------------------------
-
-
-# # PUMP SENSOR (Multiclass classification)
-# header, pump = load_pump_data()
-# # print(f"\nLoaded Pump dataset with {len(pump)} samples and {len(pump[0]) - 2} features + 1 label.")
-# # print("Header:", header)
-# # print("Sample row:", pump[0])
-# X_pump = [row[:-1] for row in pump]
-# y_pump, pump_label_map = encode_labels([row[-1] for row in pump])
-# pump_train, pump_test = train_test_split(list(zip(X_pump, y_pump)), seed=42)
-# Xp_train, yp_train = zip(*pump_train)
-# Xp_test, yp_test = zip(*pump_test)
-# Xp_train = standardize(Xp_train)
-# Xp_test = standardize(Xp_test)
-
-# print("\nPump Sensor:", len(Xp_train), "train /", len(Xp_test), "test")
+model = MulticlassLogisticRegression(lr=0.005, epochs=3000)
+# model = MulticlassLogisticRegression(lr=0.01, epochs=5000)
+# model = MulticlassLogisticRegression(lr=0.05, epochs=1500)
 
 
 
-# model = NewMulticlassLogisticRegression(lr=0.01, epochs=1000)
-# model.fit(Xp_train, yp_train)
-# preds = model.predict(Xp_test)
+model.fit(Xg_train, yg_train)
+preds = model.predict(Xg_test)
 
-# acc = sum(1 for p, y in zip(preds, yp_test) if p == y) / len(yp_test)
-# print(f"\n🎯 Pump Sensor Accuracy: {acc:.4f}")
+accuracy = sum(1 for p, y in zip(preds, yg_test) if p == y) / len(yg_test)
+print(f"🎯 Glass Accuracy: {accuracy:.4f}")
 
-# # Plot accuracy over epochs
-# plt.plot(model.training_accuracy, label="Accuracy")
-# plt.plot(model.training_loss, label="Loss")
-# plt.xlabel("Epoch")
-# plt.title("Training Progress")
-# plt.legend()
-# plt.grid(True)
-# plt.show()
-
+# Plot accuracy over epochs
+plt.plot(model.training_accuracy, label="Accuracy")
+plt.plot(model.training_loss, label="Loss")
+plt.xlabel("Epoch")
+plt.title("Training Progress")
+plt.legend()
+plt.grid(True)
+plt.show()
 
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
 
 
-"""
+# PUMP SENSOR (Multiclass classification)
+header, pump = load_pump_data()
+# print(f"\nLoaded Pump dataset with {len(pump)} samples and {len(pump[0]) - 2} features + 1 label.")
+# print("Header:", header)
+# print("Sample row:", pump[0])
+X_pump = [row[:-1] for row in pump]
+y_pump, pump_label_map = encode_labels([row[-1] for row in pump])
+pump_train, pump_test = train_test_split(list(zip(X_pump, y_pump)), seed=42)
+Xp_train, yp_train = zip(*pump_train)
+Xp_test, yp_test = zip(*pump_test)
+Xp_train = standardize(Xp_train)
+Xp_test = standardize(Xp_test)
+
+print("\nPump Sensor:", len(Xp_train), "train /", len(Xp_test), "test")
+
+
+
+model = NewMulticlassLogisticRegression(lr=0.01, epochs=1000)
+model.fit(Xp_train, yp_train)
+preds = model.predict(Xp_test)
+
+acc = sum(1 for p, y in zip(preds, yp_test) if p == y) / len(yp_test)
+print(f"\n🎯 Pump Sensor Accuracy: {acc:.4f}")
+
+# Plot accuracy over epochs
+plt.plot(model.training_accuracy, label="Accuracy")
+plt.plot(model.training_loss, label="Loss")
+plt.xlabel("Epoch")
+plt.title("Training Progress")
+plt.legend()
+plt.grid(True)
+plt.show()
+
+
+# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+
+
+
 # ENERGY (Regression)
 energy = load_energy_data()
 # print(f"\nLoaded Energy dataset with {len(energy)} samples and {len(energy[0]) - 2} features + 2 targets.")
 # print("Sample row:", energy[0])
 X_energy = [row[:-2] for row in energy]  # First 8 columns -> features
-y_energy = [row[-2] for row in energy]   # Y1 -> Heating Load
-# y_energy = [row[-1] for row in energy]  # Y2 -> Cooling load
-energy_train, energy_test = train_test_split(list(zip(X_energy, y_energy)), seed=42)
+y1_energy = [row[-2] for row in energy]   # Y1 -> Heating Load
+y2_energy = [row[-1] for row in energy]  # Y2 -> Cooling load
+energy_train, energy_test = train_test_split(list(zip(X_energy, y1_energy)), seed=42)
 Xe_train, ye_train = zip(*energy_train)
 Xe_test, ye_test = zip(*energy_test)
 Xe_train = standardize(Xe_train)
 Xe_test = standardize(Xe_test)
 
 print("\nEnergy:", len(Xe_train), "train /", len(Xe_test), "test")
-"""
+
+model = LinearRegression(lr=0.01, epochs=1000)
+model.fit(Xe_train, ye_train)
+
+# Predict on test set
+preds = model.predict(Xe_test)
+
+# Plot training loss
+plt.plot(model.training_loss)
+plt.title("Linear Regression Training Loss (Energy Y1)")
+plt.xlabel("Epoch")
+plt.ylabel("MSE Loss")
+plt.grid(True)
+plt.show()
+
+# Evaluate
+mse = regression_metrics.mean_squared_error(ye_test, preds)
+mae = regression_metrics.mean_absolute_error(ye_test, preds)
+r2 = regression_metrics.r2_score(ye_test, preds)
+
+print(f"📉 MSE: {mse:.4f}")  # average squared difference between predicted and true values. -> “How badly do I mess up — especially when I'm way off?”
+print(f"📏 MAE: {mae:.4f}")  # average distance between predictions and true values (in original units). -> “On average, how far off am I?”
+print(f"📈 R²: {r2:.4f}")  # percentage of variance in the target that your model explains. -> 	“How well do I explain the true data?”
+
+
+plt.figure(figsize=(6, 6))
+plt.scatter(ye_test, preds, alpha=0.6)
+plt.plot([min(ye_test), max(ye_test)], [min(ye_test), max(ye_test)], color='red', linestyle='--')
+plt.xlabel("Actual Y1 (Heating Load)")
+plt.ylabel("Predicted Y1")
+plt.title("Actual vs Predicted Heating Load (Y1)")
+plt.grid(True)
+plt.tight_layout()
+plt.show()
 
 
 # -----------------------------------------------------------------------------
