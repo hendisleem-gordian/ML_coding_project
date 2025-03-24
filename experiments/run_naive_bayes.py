@@ -3,6 +3,7 @@ from helpers.data_loader import load_glass_data, load_pump_data, load_breast_can
 from helpers.preprocessing import encode_labels, one_hot_encode_features, train_test_split, standardize
 import matplotlib.pyplot as plt
 
+from models.gaussian_naive_bayes_classifier import GaussianNaiveBayes
 from models.naive_bayes_classifier  import NaiveBayesClassifier
 
 from collections import defaultdict
@@ -52,16 +53,36 @@ def train_dataset_with_naive_bayes(data_name, x, y, original_label_map=None):
 
     # Evaluation 
     acc = accuracy_score(y_test, preds)
-    print(f">>>>>>>>  {data_name} Accuracy: {acc:.4f}")
-    print_confusion_matrix(y_test, preds)
+    # print(f">>>>>>>>  {data_name} Accuracy for nb: {acc:.4f}")
+    # print_confusion_matrix(y_test, preds)
 
-    # Plot how accurate the model is for each class individually
-    if original_label_map:
-        reverse_label_map = {v: k for k, v in original_label_map.items()}
-        label_names = [reverse_label_map[c] for c in sorted(reverse_label_map.keys())]
-        plot_per_class_accuracy(data_name, y_test, preds, label_names=label_names)
-    else:
-        plot_per_class_accuracy(data_name, y_test, preds)
+    # # Plot how accurate the model is for each class individually
+    # if original_label_map:
+    #     reverse_label_map = {v: k for k, v in original_label_map.items()}
+    #     label_names = [reverse_label_map[c] for c in sorted(reverse_label_map.keys())]
+    #     plot_per_class_accuracy(data_name, y_test, preds, label_names=label_names)
+    # else:
+    #     plot_per_class_accuracy(data_name, y_test, preds)
+
+
+def train_dataset_with_gaussian_naive_bayes(data_name, x, y, original_label_map=None):
+    x_train, y_train, x_test, y_test = pre_processing(data_name, x, y)
+    model = GaussianNaiveBayes()
+    model.fit(x_train, y_train)
+    preds = model.predict(x_test)
+
+    # Evaluation 
+    acc = accuracy_score(y_test, preds)
+    print(f">>>>>>>>  {data_name} Accuracy for gnb: {acc:.4f}")
+    # print_confusion_matrix(y_test, preds)
+
+    # # Plot how accurate the model is for each class individually
+    # if original_label_map:
+    #     reverse_label_map = {v: k for k, v in original_label_map.items()}
+    #     label_names = [reverse_label_map[c] for c in sorted(reverse_label_map.keys())]
+    #     plot_per_class_accuracy(data_name, y_test, preds, label_names=label_names)
+    # else:
+    #     plot_per_class_accuracy(data_name, y_test, preds)
 
 
 def run_naive_bayes():
@@ -72,6 +93,7 @@ def run_naive_bayes():
     y_glass, glass_label_map = encode_labels([row[-1] for row in glass])
 
     train_dataset_with_naive_bayes("Glass", x_glass, y_glass, glass_label_map)
+    train_dataset_with_gaussian_naive_bayes("Glass", x_glass, y_glass, glass_label_map)
 
     # -----------------------------------------------------------------------------
     # -----------------------------------------------------------------------------
@@ -82,6 +104,7 @@ def run_naive_bayes():
     y_pump, pump_label_map = encode_labels([row[-1] for row in pump])
 
     train_dataset_with_naive_bayes("Pump", x_pump, y_pump, pump_label_map)
+    train_dataset_with_gaussian_naive_bayes("Pump", x_pump, y_pump, pump_label_map)
 
     # -----------------------------------------------------------------------------
     # -----------------------------------------------------------------------------
@@ -93,6 +116,7 @@ def run_naive_bayes():
     label_map = {'B': 0, 'M': 1}
 
     train_dataset_with_naive_bayes("Breast Cancer", x_bc, y_bc, label_map)
+    train_dataset_with_gaussian_naive_bayes("Breast Cancer", x_bc, y_bc, label_map)
 
     # -----------------------------------------------------------------------------
     # -----------------------------------------------------------------------------
@@ -103,6 +127,7 @@ def run_naive_bayes():
     y_mushroom, mushroom_label_map = encode_labels([row[-1] for row in mushroom])
 
     train_dataset_with_naive_bayes("Mushroom", x_mushroom, y_mushroom, mushroom_label_map)
+    train_dataset_with_gaussian_naive_bayes("Mushroom", x_mushroom, y_mushroom, mushroom_label_map)
 
     # -----------------------------------------------------------------------------
     # -----------------------------------------------------------------------------
@@ -113,6 +138,7 @@ def run_naive_bayes():
     y_robot, robot_label_map = encode_labels([row[-1] for row in robot])
 
     train_dataset_with_naive_bayes("Robot", x_robot, y_robot, robot_label_map)
+    train_dataset_with_gaussian_naive_bayes("Robot", x_robot, y_robot, robot_label_map)
 
     # -----------------------------------------------------------------------------
     # -----------------------------------------------------------------------------

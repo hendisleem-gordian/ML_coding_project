@@ -74,3 +74,11 @@ I had to use the labels for the ploting and it mostly didn't do great overall
 
 As we can see it made great results with pump and mashroom but not so great witht he float heavy featuresso let's try doing the Gaussian Naive Bayes for those
 
+    - Glass Accuracy for gnb: 0.5581
+    - Pump Accuracy for gnb: 0.9822
+    - Breast Cancer Accuracy for gnb: 0.8947
+    - Mushroom Accuracy for gnb: 0.9502
+    - Robot Accuracy for gnb: 0.3763
+
+a defet for the robot but better than nothing
+
