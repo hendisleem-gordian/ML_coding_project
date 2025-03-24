@@ -44,7 +44,7 @@ model.fit(Xg_train, yg_train)
 preds = model.predict(Xg_test)
 
 accuracy = sum(1 for p, y in zip(preds, yg_test) if p == y) / len(yg_test)
-print(f"🎯 Glass Accuracy: {accuracy:.4f}")
+print(f"Glass Accuracy: {accuracy:.4f}")
 
 # Plot accuracy over epochs
 plt.plot(model.training_accuracy, label="Accuracy")
@@ -76,12 +76,12 @@ print("\nPump Sensor:", len(Xp_train), "train /", len(Xp_test), "test")
 
 
 
-model = NewMulticlassLogisticRegression(lr=0.01, epochs=1000)
+model = MulticlassLogisticRegression(lr=0.01, epochs=1000)
 model.fit(Xp_train, yp_train)
 preds = model.predict(Xp_test)
 
 acc = sum(1 for p, y in zip(preds, yp_test) if p == y) / len(yp_test)
-print(f"\n🎯 Pump Sensor Accuracy: {acc:.4f}")
+print(f"\nPump Sensor Accuracy: {acc:.4f}")
 
 # Plot accuracy over epochs
 plt.plot(model.training_accuracy, label="Accuracy")
@@ -132,9 +132,9 @@ mse = regression_metrics.mean_squared_error(ye_test, preds)
 mae = regression_metrics.mean_absolute_error(ye_test, preds)
 r2 = regression_metrics.r2_score(ye_test, preds)
 
-print(f"📉 MSE: {mse:.4f}")  # average squared difference between predicted and true values. -> “How badly do I mess up — especially when I'm way off?”
-print(f"📏 MAE: {mae:.4f}")  # average distance between predictions and true values (in original units). -> “On average, how far off am I?”
-print(f"📈 R²: {r2:.4f}")  # percentage of variance in the target that your model explains. -> 	“How well do I explain the true data?”
+print(f"MSE: {mse:.4f}")  # average squared difference between predicted and true values. -> “How badly do I mess up — especially when I'm way off?”
+print(f"MAE: {mae:.4f}")  # average distance between predictions and true values (in original units). -> “On average, how far off am I?”
+print(f"R²: {r2:.4f}")  # percentage of variance in the target that your model explains. -> 	“How well do I explain the true data?”
 
 
 plt.figure(figsize=(6, 6))
@@ -178,7 +178,7 @@ preds = model.predict(Xbc_test)
 
 # Accuracy
 acc = sum(1 for p, y in zip(preds, ybc_test) if p == y) / len(ybc_test)
-print(f"\n🎯 Breast Cancer Accuracy: {acc:.4f}")
+print(f"\nBreast Cancer Accuracy: {acc:.4f}")
 
 
 
@@ -215,7 +215,7 @@ print(f"\n🎯 Breast Cancer Accuracy: {acc:.4f}")
 # preds = model.predict(Xm_test)
 
 # acc = sum(1 for p, y in zip(preds, ym_test) if p == y) / len(ym_test)
-# print(f"🎯 Mushroom Accuracy: {acc:.4f}")
+# print(f"Mushroom Accuracy: {acc:.4f}")
 
 
 
@@ -247,6 +247,6 @@ print(f"\n🎯 Breast Cancer Accuracy: {acc:.4f}")
 # preds = model.predict(Xr_test)
 
 # acc = sum(1 for p, y in zip(preds, yr_test) if p == y) / len(yr_test)
-# print(f"🎯 Robot Accuracy: {acc:.4f}")
+# print(f"Robot Accuracy: {acc:.4f}")
 
 """"""
