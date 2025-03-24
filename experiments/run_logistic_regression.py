@@ -20,7 +20,7 @@ def pre_processing(data_name, x, y):
 
 
 def train_dataset(data_name, x, y, lr, epochs):
-    x_train, y_train, x_test, y_test = pre_processing("Glass", x, y)
+    x_train, y_train, x_test, y_test = pre_processing(data_name, x, y)
     model = MulticlassLogisticRegression(lr, epochs)
     model.fit(x_train, y_train)
     preds = model.predict(x_test)
