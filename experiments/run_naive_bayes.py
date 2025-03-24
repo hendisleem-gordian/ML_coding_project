@@ -53,16 +53,16 @@ def train_dataset_with_naive_bayes(data_name, x, y, original_label_map=None):
 
     # Evaluation 
     acc = accuracy_score(y_test, preds)
-    # print(f">>>>>>>>  {data_name} Accuracy for nb: {acc:.4f}")
-    # print_confusion_matrix(y_test, preds)
+    print(f">>>>>>>>  {data_name} Accuracy for nb: {acc:.4f}")
+    print_confusion_matrix(y_test, preds)
 
-    # # Plot how accurate the model is for each class individually
-    # if original_label_map:
-    #     reverse_label_map = {v: k for k, v in original_label_map.items()}
-    #     label_names = [reverse_label_map[c] for c in sorted(reverse_label_map.keys())]
-    #     plot_per_class_accuracy(data_name, y_test, preds, label_names=label_names)
-    # else:
-    #     plot_per_class_accuracy(data_name, y_test, preds)
+    # Plot how accurate the model is for each class individually
+    if original_label_map:
+        reverse_label_map = {v: k for k, v in original_label_map.items()}
+        label_names = [reverse_label_map[c] for c in sorted(reverse_label_map.keys())]
+        plot_per_class_accuracy(data_name, y_test, preds, label_names=label_names)
+    else:
+        plot_per_class_accuracy(data_name, y_test, preds)
 
 
 def train_dataset_with_gaussian_naive_bayes(data_name, x, y, original_label_map=None):
@@ -74,15 +74,15 @@ def train_dataset_with_gaussian_naive_bayes(data_name, x, y, original_label_map=
     # Evaluation 
     acc = accuracy_score(y_test, preds)
     print(f">>>>>>>>  {data_name} Accuracy for gnb: {acc:.4f}")
-    # print_confusion_matrix(y_test, preds)
+    print_confusion_matrix(y_test, preds)
 
-    # # Plot how accurate the model is for each class individually
-    # if original_label_map:
-    #     reverse_label_map = {v: k for k, v in original_label_map.items()}
-    #     label_names = [reverse_label_map[c] for c in sorted(reverse_label_map.keys())]
-    #     plot_per_class_accuracy(data_name, y_test, preds, label_names=label_names)
-    # else:
-    #     plot_per_class_accuracy(data_name, y_test, preds)
+    # Plot how accurate the model is for each class individually
+    if original_label_map:
+        reverse_label_map = {v: k for k, v in original_label_map.items()}
+        label_names = [reverse_label_map[c] for c in sorted(reverse_label_map.keys())]
+        plot_per_class_accuracy(data_name, y_test, preds, label_names=label_names)
+    else:
+        plot_per_class_accuracy(data_name, y_test, preds)
 
 
 def run_naive_bayes():
