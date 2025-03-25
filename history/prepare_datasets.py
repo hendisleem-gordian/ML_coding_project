@@ -11,6 +11,9 @@ pp = pprint.PrettyPrinter(indent=2)
 
 
 # -----------------------------------------------------------------------------
+
+# Disrecard this file. It has been over written by the new files in experiments
+
 # -----------------------------------------------------------------------------
 
 # GLASS (Multiclass classification)
