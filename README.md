@@ -37,6 +37,9 @@ ML_code/
 │   └── run_decision_tree.py
 │
 ├── history/                # Logs from training
+|
+|
+├── plots/         # Have some of the plots from running the experiments
 │
 ├── main.py             # just a file to check loading the databases before you run the experiments
 |
@@ -115,7 +118,7 @@ python -m experiments.run_decision_tree
 ## Evaluation & Metrics
 - **Classification models:** Accuracy, Confusion Matrix, Per-class Accuracy Bar Charts
 - **Regression model:** Mean Squared Error (MSE), Mean Absolute Error (MAE), R-squared (R²)
-- Plots are in the `pics/` directory and logs are stored in the `history/` directory
+- Plots are in the `plots/` directory and logs are stored in the `history/` directory
 
 ---
 
